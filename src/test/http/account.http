@@ -1,0 +1,54 @@
+### Create Account
+POST http://localhost:8080/account
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "initialBalance": 10000
+}
+
+### Delete Account
+DELETE http://localhost:8080/account
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "accountNumber": "1000000000"
+}
+
+
+### Get User Account
+GET http://localhost:8080/account?user_id=1
+
+### Use Balance 1
+POST http://localhost:8080/transaction/use
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "accountNumber": "1000000001",
+  "amount": 200
+}
+
+### Use Balance 2
+POST http://localhost:8080/transaction/use
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "accountNumber": "1000000001",
+  "amount": 200
+}
+
+### Cancel Balance By Transaction
+POST http://localhost:8080/transaction/cancel
+Content-Type: application/json
+
+{
+  "transactionId": "23907933aa8d4145930f229d2f8b5e9c",
+  "accountNumber": "1000000001",
+  "amount": 200
+}
+
+### Get Transaction By Transaction Id
+GET http://localhost:8080/transaction/23907933aa8d4145930f229d2f8b5e9c
